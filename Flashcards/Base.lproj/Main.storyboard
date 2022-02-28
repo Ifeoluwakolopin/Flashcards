@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hu0-Md-PFp">
-                                <rect key="frame" x="46" y="323" width="322" height="219"/>
+                                <rect key="frame" x="46" y="187" width="322" height="219"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Abuja" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFk-gH-kw9">
@@ -44,19 +44,78 @@
                                     <outletCollection property="gestureRecognizers" destination="ef2-mD-7li" appends="YES" id="aet-XO-bGe"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-Rl-1OJ">
+                                <rect key="frame" x="46" y="485" width="322" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Abuja">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="DdG-fS-Qgc" appends="YES" id="b6J-Jz-JSJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTc-om-k2j">
+                                <rect key="frame" x="46" y="563" width="322" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Paris">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="nuO-PO-VEt" appends="YES" id="EbW-RZ-8Ex"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvE-rj-9dW">
+                                <rect key="frame" x="46" y="641" width="322" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Washington">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="qDS-1r-EPJ" appends="YES" id="Efo-xD-dga"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="gFk-gH-kw9" id="COZ-Ql-Mws"/>
+                        <outlet property="btn1" destination="dHY-Rl-1OJ" id="EN0-Qp-IGF"/>
+                        <outlet property="btn2" destination="iTc-om-k2j" id="Y4j-LV-znI"/>
+                        <outlet property="btn3" destination="ZvE-rj-9dW" id="rUo-G0-QP1"/>
+                        <outlet property="card" destination="hu0-Md-PFp" id="Va9-xH-aLa"/>
                         <outlet property="questionLabel" destination="3dy-FP-whf" id="cjb-O3-idA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ef2-mD-7li">
                     <connections>
-                        <action selector="didTapOnFlashCard:" destination="BYZ-38-t0r" id="pyX-aa-4Kk"/>
+                        <action selector="didTapOnFlashCard:" destination="BYZ-38-t0r" id="pT5-q7-tnv"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="DdG-fS-Qgc">
+                    <connections>
+                        <action selector="didTapOnBtn1:" destination="BYZ-38-t0r" id="9Xv-ci-G0y"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="nuO-PO-VEt">
+                    <connections>
+                        <action selector="didTapOnBtn2:" destination="BYZ-38-t0r" id="7Qt-SP-ud8"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="qDS-1r-EPJ">
+                    <connections>
+                        <action selector="didTapOnBtn3:" destination="BYZ-38-t0r" id="UU5-d1-c4R"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
