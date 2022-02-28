@@ -8,8 +8,7 @@
 Flashcards is an interactive mobile application that allows users to answer fun trivia questions on their iOS devices.
 
 ### App Walk-though
-
-<img src="YOUR_GIF_URL_HERE" width=200><br>
+![GIF](https://media.giphy.com/media/mVqjtAVnfqYHweN0Tp/giphy.gif)
 
 ## Required
 - [x] Create New Project in Xcode
