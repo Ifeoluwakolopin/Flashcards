@@ -17,7 +17,7 @@ class CreationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
+    // Get the question and answer fields as IBOutlets
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextField: UITextField!
     
@@ -28,12 +28,17 @@ class CreationViewController: UIViewController {
 
     @IBAction func didTapOnDone(_ sender: Any) {
         
+        // Get the text in the question text field
         let questionText = questionTextField.text
         
+        // Get the text in the answer text field
         let answerText = answerTextField.text
         
+        // Call the function to update the flashcard
         flashcardsController.updateFlashcard(question: questionText!, answer: answerText!)
         
+        // dismiss after tapping done.
+        dismiss(animated: true)
     }
     
     
