@@ -18,7 +18,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navigationController = segue.destination as! UINavigationController
+        
+        let creationController = navigationController.topViewController as! CreationViewController
+        
+        creationController.flashcardsController = self
+        
+    }
     override func viewDidLoad() {
         // This function runs before the user sees the app
         
@@ -69,6 +76,11 @@ class ViewController: UIViewController {
         else {
             questionLabel.isHidden = true
         }
+        
+    }
+    
+    func updateFlashcard(question:String, answer: String) {
+        
         
     }
     
