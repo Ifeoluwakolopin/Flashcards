@@ -38,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		3277BD3B27DD2AAD0082BD2A /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
+		32F6A5AC27E31123007C45B8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		32F9FE5327CAA8FE00363642 /* Flashcards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F9FE5627CAA8FE00363642 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32F9FE5827CAA8FE00363642 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		32F9FE4A27CAA8FE00363642 = {
 			isa = PBXGroup;
 			children = (
+				32F6A5AC27E31123007C45B8 /* README.md */,
 				32F9FE5527CAA8FE00363642 /* Flashcards */,
 				32F9FE6C27CAA8FF00363642 /* FlashcardsTests */,
 				32F9FE7627CAA8FF00363642 /* FlashcardsUITests */,
