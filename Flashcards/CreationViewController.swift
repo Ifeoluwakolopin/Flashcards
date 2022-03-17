@@ -21,24 +21,38 @@ class CreationViewController: UIViewController {
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextField: UITextField!
     
+//    Handles action for cancling new question action.
     @IBAction func didTapOnCancel(_ sender: Any) {
         dismiss(animated: true)
     }
     
-
+// Handles the action for taping Done after pop-up
     @IBAction func didTapOnDone(_ sender: Any) {
         
-        // Get the text in the question text field
+//    Get the text in the question text field
         let questionText = questionTextField.text
         
-        // Get the text in the answer text field
+//    Get the text in the answer text field
         let answerText = answerTextField.text
         
+//        design alert button
+        let missingTextAlert = UIAlertController(
+            title: "Missing text", message: "You need to enter both a question and an answer", preferredStyle: UIAlertController.Style.alert        )
+//    add OK button
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+//        attach Ok button to alertbutton
+        missingTextAlert.addAction(okAction)
+        
+        if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty {
+            present(missingTextAlert, animated: true)
+        } else {
         // Call the function to update the flashcard
         flashcardsController.updateFlashcard(question: questionText!, answer: answerText!)
         
         // dismiss after tapping done.
         dismiss(animated: true)
+            
+        }
     }
     
     
