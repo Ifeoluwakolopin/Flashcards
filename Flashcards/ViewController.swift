@@ -23,8 +23,10 @@ class ViewController: UIViewController {
         
         let creationController = navigationController.topViewController as! CreationViewController
         
-        creationController.initialQuestion = questionLabel.text
-        creationController.initialAnswer = answerLabel.text
+        if segue.identifier == "EditSegue" {
+            creationController.initialQuestion = questionLabel.text
+            creationController.initialAnswer = answerLabel.text
+        }
         
         creationController.flashcardsController = self
         

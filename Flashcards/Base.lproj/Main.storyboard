@@ -43,7 +43,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="✏️"/>
                                         <connections>
-                                            <segue destination="6HZ-FJ-0rG" kind="show" id="odK-2z-POg"/>
+                                            <segue destination="6HZ-FJ-0rG" kind="show" identifier="EditSegue" id="odK-2z-POg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -99,7 +99,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="6HZ-FJ-0rG" kind="presentation" id="92g-9T-cm6"/>
+                                    <segue destination="6HZ-FJ-0rG" kind="show" id="92g-9T-cm6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -208,7 +208,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="92g-9T-cm6"/>
+        <segue reference="odK-2z-POg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
