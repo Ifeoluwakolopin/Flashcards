@@ -12,10 +12,15 @@ class CreationViewController: UIViewController {
     var flashcardsController: ViewController!
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+//      assign data from existing question into these
+//          variables to create new questions.
         questionTextField.text = initialQuestion
         answerTextField.text = initialAnswer
+        extraAnswerOne.text = initialOption2
+        extraAnswerTwo.text = initialOption3
+        
+        super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
@@ -23,8 +28,13 @@ class CreationViewController: UIViewController {
     // Get the question and answer fields as IBOutlets
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var extraAnswerOne: UITextField!
+    @IBOutlet weak var extraAnswerTwo: UITextField!
+    
     var initialQuestion: String?
     var initialAnswer: String?
+    var initialOption2: String?
+    var initialOption3: String?
     
 //    Handles action for cancling new question action.
     @IBAction func didTapOnCancel(_ sender: Any) {
@@ -36,9 +46,11 @@ class CreationViewController: UIViewController {
         
 //    Get the text in the question text field
         let questionText = questionTextField.text
-        
 //    Get the text in the answer text field
         let answerText = answerTextField.text
+//    Get the text for the extra answers
+        let answerText1 = extraAnswerOne.text
+        let answerText2 = extraAnswerTwo.text
         
 //        design alert button
         let missingTextAlert = UIAlertController(
@@ -52,7 +64,7 @@ class CreationViewController: UIViewController {
             present(missingTextAlert, animated: true)
         } else {
         // Call the function to update the flashcard
-        flashcardsController.updateFlashcard(question: questionText!, answer: answerText!)
+        flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraOne: answerText1!, extraTwo: answerText2!)
         
         // dismiss after tapping done.
         dismiss(animated: true)

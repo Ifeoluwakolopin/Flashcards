@@ -26,6 +26,9 @@ class ViewController: UIViewController {
         if segue.identifier == "EditSegue" {
             creationController.initialQuestion = questionLabel.text
             creationController.initialAnswer = answerLabel.text
+//          added all options to edit question segue
+            creationController.initialOption2 = btn2.title(for: .normal)
+            creationController.initialOption3 = btn3.title(for: .normal)
         }
         
         creationController.flashcardsController = self
@@ -64,14 +67,20 @@ class ViewController: UIViewController {
     @IBAction func didTapOnBtn1(_ sender: Any) {
         questionLabel.isHidden = true
         btn1.layer.backgroundColor = #colorLiteral(red: 0.3204639256, green: 0.9908053279, blue: 0.5152505636, alpha: 1)
+        btn2.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        btn3.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
     @IBAction func didTapOnBtn2(_ sender: Any) {
         btn2.layer.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        btn1.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        btn3.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
     @IBAction func didTapOnBtn3(_ sender: Any) {
         btn3.layer.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+        btn2.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        btn1.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     
     @IBAction func didTapOnFlashCard(_ sender: Any) {
@@ -84,7 +93,15 @@ class ViewController: UIViewController {
         
     }
     
-    func updateFlashcard(question:String, answer: String) {
+    // Update flashcard with new questions.
+    func updateFlashcard(question:String, answer: String, extraOne: String?, extraTwo: String?) {
+        
+        questionLabel.text = question
+        answerLabel.text = answer
+        
+        btn1.setTitle(answer, for: .normal)
+        btn2.setTitle(extraOne, for: .normal)
+        btn3.setTitle(extraTwo, for: .normal)
         
         
     }
