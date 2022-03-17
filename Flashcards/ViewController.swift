@@ -23,6 +23,9 @@ class ViewController: UIViewController {
         
         let creationController = navigationController.topViewController as! CreationViewController
         
+        creationController.initialQuestion = questionLabel.text
+        creationController.initialAnswer = answerLabel.text
+        
         creationController.flashcardsController = self
         
     }

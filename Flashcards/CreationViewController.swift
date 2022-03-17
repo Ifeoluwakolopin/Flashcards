@@ -13,6 +13,9 @@ class CreationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        questionTextField.text = initialQuestion
+        answerTextField.text = initialAnswer
 
         // Do any additional setup after loading the view.
     }
@@ -20,6 +23,8 @@ class CreationViewController: UIViewController {
     // Get the question and answer fields as IBOutlets
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextField: UITextField!
+    var initialQuestion: String?
+    var initialAnswer: String?
     
 //    Handles action for cancling new question action.
     @IBAction func didTapOnCancel(_ sender: Any) {
