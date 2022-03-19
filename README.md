@@ -10,6 +10,7 @@
 ### App Walk-though
 ![GIF](https://media.giphy.com/media/CftZKHms5ZJrkbvakH/giphy.gif)
 ![GIF](https://media.giphy.com/media/ajN3MuCDx7bKaRifx0/giphy.gif)
+![GIF](https://media.giphy.com/media/bkB2ZFNCXoYa99axBp/giphy.gif)
 
 ## Required
 - [x] User can open the creation screen
