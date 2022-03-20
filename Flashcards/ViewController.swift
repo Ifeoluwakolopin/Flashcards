@@ -189,14 +189,14 @@ class ViewController: UIViewController {
 //        Update current index
             currentIndex = flashcards.count - 1
         }
+//        update options
+        updateOptions()
+        
 //        Update labels
         updateLabels()
 
 //        Update buttons
         updateNextPrevButtons()
-        
-//        update options
-        updateOptions()
         
 //        update flashcards in disk memory with new flashcard
         saveAllFlashcardsToDisk()
@@ -229,13 +229,12 @@ class ViewController: UIViewController {
     }
     
     func updateOptions() {
-        /*
+        
         let flashcard = flashcards[currentIndex]
+        
         btn1.setTitle(flashcard.answer, for: .normal)
         btn2.setTitle(flashcard.extraOne, for: .normal)
         btn3.setTitle(flashcard.extraTwo, for: .normal)
-         */
-        
     }
     
     func saveAllFlashcardsToDisk() {
