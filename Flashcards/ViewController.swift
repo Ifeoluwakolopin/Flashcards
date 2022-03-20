@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct Flashcard {
+    var question: String
+    var answer: String
+}
+
 class ViewController: UIViewController {
     
     
@@ -17,6 +22,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
+    
+    // Array to hold all our flashcards
+    var flashcards = [Flashcard]()
+//    current flashcards index
+    var currentIndex = 0
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let navigationController = segue.destination as! UINavigationController
@@ -62,6 +72,8 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
+        updateFlashcard(question: "What is the best way to learn?", answer: "Practicing", extraOne: "Procastinating", extraTwo: "Eating")
+        
     }
 
     @IBAction func didTapOnBtn1(_ sender: Any) {
@@ -93,17 +105,32 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func didTapOnNext(_ sender: Any) {
+        
+    }
+    
+    @IBAction func didTapOnPrev(_ sender: Any) {
+        
+    }
+    
     // Update flashcard with new questions.
     func updateFlashcard(question:String, answer: String, extraOne: String?, extraTwo: String?) {
         
-        questionLabel.text = question
-        answerLabel.text = answer
+        let flashcard = Flashcard(question: question, answer: answer)
+        
+        //  Adding flashcard in the flashcards array
+        flashcards.append(flashcard)
+        
+        print("Added new flashcard")
+        
+        questionLabel.text = flashcard.question
+        answerLabel.text = flashcard.answer
         
         btn1.setTitle(answer, for: .normal)
         btn2.setTitle(extraOne, for: .normal)
         btn3.setTitle(extraTwo, for: .normal)
         
-        
     }
     
+
 }
