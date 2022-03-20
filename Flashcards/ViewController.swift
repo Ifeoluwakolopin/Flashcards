@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var prevButton: UIButton!
     
     // Array to hold all our flashcards
     var flashcards = [Flashcard]()
@@ -106,10 +108,26 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapOnNext(_ sender: Any) {
+//        increase current index
+        currentIndex = currentIndex + 1
+        
+//        update labels
+        updateLabels()
+        
+//        update buttons
+        updateNextPrevButtons()
         
     }
     
     @IBAction func didTapOnPrev(_ sender: Any) {
+//       increase current index
+        currentIndex = currentIndex - 1
+                
+//        update labels
+        updateLabels()
+        
+//        update buttons
+        updateNextPrevButtons()
         
     }
     
@@ -121,16 +139,44 @@ class ViewController: UIViewController {
         //  Adding flashcard in the flashcards array
         flashcards.append(flashcard)
         
-        print("Added new flashcard")
+//        Update current index
+        currentIndex = flashcards.count - 1
         
-        questionLabel.text = flashcard.question
-        answerLabel.text = flashcard.answer
+//        Update labels
+        updateLabels()
+
+//        Update buttons
+        updateNextPrevButtons()
         
         btn1.setTitle(answer, for: .normal)
         btn2.setTitle(extraOne, for: .normal)
         btn3.setTitle(extraTwo, for: .normal)
-        
+    
     }
     
+    func updateNextPrevButtons() {
+//      Disable the next buton if at the end
+        if currentIndex == flashcards.count - 1 {
+            nextButton.isEnabled = false
+        } else {
+            nextButton.isEnabled = true
+        }
+//      Disable previous button if at the beginning
+        if currentIndex == 0 {
+            prevButton.isEnabled = false
+        } else {
+            prevButton.isEnabled = true
+        }
+    }
+    
+    func updateLabels() {
+//        Get current flashcad
+        let currentFlashcard = flashcards[currentIndex]
+        
+//        update labels
+        questionLabel.text = currentFlashcard.question
+        answerLabel.text = currentFlashcard.answer
+    
+    }
 
 }

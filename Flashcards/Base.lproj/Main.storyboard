@@ -147,6 +147,8 @@
                         <outlet property="btn2" destination="iTc-om-k2j" id="Y4j-LV-znI"/>
                         <outlet property="btn3" destination="ZvE-rj-9dW" id="rUo-G0-QP1"/>
                         <outlet property="card" destination="hu0-Md-PFp" id="Va9-xH-aLa"/>
+                        <outlet property="nextButton" destination="5Ht-3e-c2R" id="OMp-Hz-3QB"/>
+                        <outlet property="prevButton" destination="fH4-v7-1l3" id="eCZ-Zp-tGe"/>
                         <outlet property="questionLabel" destination="3dy-FP-whf" id="cjb-O3-idA"/>
                     </connections>
                 </viewController>
