@@ -8,8 +8,6 @@
 Flashcards is an interactive mobile application that allows users to answer fun trivia questions on their iOS devices.
 
 ### App Walk-though
-`TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
-
 ![GIF](https://media.giphy.com/media/nQVP7VOukm9UhNw78c/giphy.gif)
 ![GIF](https://media.giphy.com/media/Dkj9T74vuRYBufp3Qw/giphy.gif)
 ![GIF](https://media.giphy.com/media/HfUSDNQftHrALbrxh0/giphy.gif)
