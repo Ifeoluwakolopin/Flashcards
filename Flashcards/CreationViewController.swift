@@ -63,25 +63,20 @@ class CreationViewController: UIViewController {
         if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty {
             present(missingTextAlert, animated: true)
         } else {
+//          See if card exists
+            var isExisting = false
+            
+            if initialQuestion != nil {
+                isExisting = true
+            }
+            
         // Call the function to update the flashcard
-        flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraOne: answerText1!, extraTwo: answerText2!)
+        flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraOne: answerText1!, extraTwo: answerText2!, isExisting: isExisting)
         
         // dismiss after tapping done.
         dismiss(animated: true)
             
         }
     }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
