@@ -74,7 +74,16 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
-        updateFlashcard(question: "What is the best way to learn?", answer: "Practicing", extraOne: "Procastinating", extraTwo: "Eating")
+//        Read saved flashcards
+        readSavedFlashcards()
+        
+//        Adding our initial flashcard if needed
+        if flashcards.count == 0 {
+            updateFlashcard(question: "What is the best way to learn?", answer: "Practicing", extraOne: "Procastinating", extraTwo: "Eating")
+        } else {
+            updateLabels()
+            updateNextPrevButtons()
+        }
         
     }
 
@@ -151,6 +160,9 @@ class ViewController: UIViewController {
         btn1.setTitle(answer, for: .normal)
         btn2.setTitle(extraOne, for: .normal)
         btn3.setTitle(extraTwo, for: .normal)
+        
+//        update flashcards in disk memory with new flashcard
+        saveAllFlashcardsToDisk()
     
     }
     
@@ -177,6 +189,34 @@ class ViewController: UIViewController {
         questionLabel.text = currentFlashcard.question
         answerLabel.text = currentFlashcard.answer
     
+    }
+    
+    func saveAllFlashcardsToDisk() {
+        
+//        Convert flashcard array to dictionary array
+        let dictionaryArray = flashcards.map { (card) -> [String: String] in
+            return ["question": card.question, "answer": card.answer]
+        }
+        
+//       Save array on disk using UserDefaults
+        UserDefaults.standard.set(
+            dictionaryArray, forKey: "flashcards"
+        )
+        print("Flashcards saved to UserDefaults")
+    }
+    
+    func readSavedFlashcards() {
+//        read dictionary Arry from disk (if any)
+        if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String: String]] {
+            let savedCards  = dictionaryArray.map {
+                dictionary -> Flashcard in
+                return Flashcard(question: dictionary["question"]!, answer: dictionary["answer"]!)
+            }
+            
+//            put all these cards in our flashcards array
+            flashcards.append(contentsOf: savedCards)
+        }
+        
     }
 
 }

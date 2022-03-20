@@ -5,28 +5,23 @@
 ## Lab 3
 
 ### App Description
-`TODO://` Add app description
+Flashcards is an interactive mobile application that allows users to answer fun trivia questions on their iOS devices.
 
 ### App Walk-though
 `TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
 
 <img src="YOUR_GIF_URL_HERE" width=200><br>
 
-`TODO://` In the User stories section below, add an `x` between the `-[ ]` like this `- [x]` for any user story you complete. (☝️ Remove this paragraph after after checking off user stories)
-
 ## Required
-- [ ] User can browse through multiple flashcards
-- [ ] User can re-open the app and see previously created flashcards
-- [ ] Push code to GitHub
+- [x] User can browse through multiple flashcards
+- [x] User can re-open the app and see previously created flashcards
+- [x] Push code to GitHub
 ## Optional
 - [ ] User can delete a flashcard
 - [ ] User can edit existing flashcard
 - [ ] User can store multiple choice questions
 
 ## Lab 2
-
-### App Description
-`TODO://` Add app description
 
 ### App Walk-though
 ![GIF](https://media.giphy.com/media/CftZKHms5ZJrkbvakH/giphy.gif)
@@ -44,9 +39,6 @@
 - [x] User can add multiple choice answers in the creation screen
 
 ## Lab 1
-
-### App Description
-Flashcards is an interactive mobile application that allows users to answer fun trivia questions on their iOS devices.
 
 ### App Walk-though
 ![GIF](https://media.giphy.com/media/mVqjtAVnfqYHweN0Tp/giphy.gif)
