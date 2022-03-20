@@ -10,16 +10,19 @@ Flashcards is an interactive mobile application that allows users to answer fun 
 ### App Walk-though
 `TODO://` Add the URL to your animated app walk-though `gif` in the image tag below. Make sure the gif actually renders and animates when viewing this README. (☝️ Remove this paragraph after after adding gif)
 
-<img src="YOUR_GIF_URL_HERE" width=200><br>
+![GIF](https://media.giphy.com/media/nQVP7VOukm9UhNw78c/giphy.gif)
+![GIF](https://media.giphy.com/media/Dkj9T74vuRYBufp3Qw/giphy.gif)
+![GIF](https://media.giphy.com/media/HfUSDNQftHrALbrxh0/giphy.gif)
+![GIF](https://media.giphy.com/media/YVrAJyfetVKt28jz96/giphy.gif)
 
 ## Required
 - [x] User can browse through multiple flashcards
 - [x] User can re-open the app and see previously created flashcards
 - [x] Push code to GitHub
 ## Optional
-- [ ] User can delete a flashcard
-- [ ] User can edit existing flashcard
-- [ ] User can store multiple choice questions
+- [x] User can delete a flashcard
+- [x] User can edit existing flashcard
+- [x] User can store multiple choice questions
 
 ## Lab 2
 
