@@ -123,6 +123,8 @@ class ViewController: UIViewController {
         })
     }
     
+//    Added function parameters infloat and outfloat to specify the
+//    direction of the card animations and reuse the functions for both next and previous buttons
     func animateCardOut(outfloat: CGFloat, infloat: CGFloat) {
         UIView.animate(withDuration: 0.3, animations: {
             self.card.transform = CGAffineTransform.identity.translatedBy(x: outfloat, y: 0.0)
