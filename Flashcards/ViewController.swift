@@ -113,36 +113,55 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapOnFlashCard(_ sender: Any) {
-        if questionLabel.isHidden {
-            questionLabel.isHidden = false
-        }
-        else {
-            questionLabel.isHidden = true
-        }
+        flipFlashcard()
+    }
+    
+    func flipFlashcard() {
+        questionLabel.isHidden = true
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {
+            self.questionLabel.isHidden = true
+        })
+    }
+    
+    func animateCardOut(outfloat: CGFloat, infloat: CGFloat) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: outfloat, y: 0.0)
+        }, completion: {
+            finished in
+            // update labels
+            self.updateLabels()
+//            Run other animation
+            self.animateCardIn(infloat: infloat)
+        })
+    }
+    
+    func animateCardIn(infloat: CGFloat) {
         
+//        Start on the right side
+        card.transform = CGAffineTransform.identity.translatedBy(x: infloat, y: 0.0)
+//        Animate the card going back to its original position
+        UIView.animate(withDuration: 0.3) {
+            self.card.transform = CGAffineTransform.identity
+        }
     }
     
     @IBAction func didTapOnNext(_ sender: Any) {
 //        increase current index
         currentIndex = currentIndex + 1
-        
-//        update labels
-        updateLabels()
-        
+                
 //        update options
         updateOptions()
         
 //        update buttons
         updateNextPrevButtons()
+        
+        animateCardOut(outfloat: -300, infloat: 300)
         
     }
     
     @IBAction func didTapOnPrev(_ sender: Any) {
 //       increase current index
         currentIndex = currentIndex - 1
-                
-//        update labels
-        updateLabels()
         
 //        update options
         updateOptions()
@@ -150,6 +169,7 @@ class ViewController: UIViewController {
 //        update buttons
         updateNextPrevButtons()
         
+        animateCardOut(outfloat: 300, infloat: -300)
     }
     
     @IBAction func didTapOnDelete(_ sender: Any) {
