@@ -48,6 +48,8 @@ class ViewController: UIViewController {
         creationController.flashcardsController = self
         
     }
+    
+    
     override func viewDidLoad() {
         // This function runs before the user sees the app
         
@@ -90,26 +92,49 @@ class ViewController: UIViewController {
         
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        First start with the flashcard invisible and slightly smaller in size
+        card.alpha = 0.0
+        card.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+//        Animation
+        UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.card.alpha = 1.0
+            self.card.transform = CGAffineTransform.identity
+        })
+    }
     
 //    ACTIONS
     
     @IBAction func didTapOnBtn1(_ sender: Any) {
-        questionLabel.isHidden = true
-        btn1.layer.backgroundColor = #colorLiteral(red: 0.3204639256, green: 0.9908053279, blue: 0.5152505636, alpha: 1)
-        btn2.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        btn3.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        Flip flashcard if correct answer else disable
+        if btn1 == correctAnswerButton {
+            flipFlashcard()
+        } else {
+            questionLabel.isHidden = false
+        }
+
     }
     
     @IBAction func didTapOnBtn2(_ sender: Any) {
-        btn2.layer.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
-        btn1.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        btn3.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        Flip flashcard if correct answer else disable
+        if btn2 == correctAnswerButton {
+            flipFlashcard()
+        } else {
+            questionLabel.isHidden = false
+        }
     }
     
     @IBAction func didTapOnBtn3(_ sender: Any) {
-        btn3.layer.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
-        btn2.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        btn1.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        Flip flashcard if correct answer else disable
+        if btn3 == correctAnswerButton {
+            flipFlashcard()
+        } else {
+            questionLabel.isHidden = false
+            btn3.isEnabled = false
+        }
     }
     
     @IBAction func didTapOnFlashCard(_ sender: Any) {
@@ -117,9 +142,13 @@ class ViewController: UIViewController {
     }
     
     func flipFlashcard() {
-        questionLabel.isHidden = true
         UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {
-            self.questionLabel.isHidden = true
+            if self.questionLabel.isHidden == false {
+                self.questionLabel.isHidden = true
+            } else {
+                self.questionLabel.isHidden = false
+            }
+            
         })
     }
     
@@ -128,6 +157,8 @@ class ViewController: UIViewController {
     func animateCardOut(outfloat: CGFloat, infloat: CGFloat) {
         UIView.animate(withDuration: 0.3, animations: {
             self.card.transform = CGAffineTransform.identity.translatedBy(x: outfloat, y: 0.0)
+//            This flips the card to the question label before switching to the next card. This is important incase use leaves the answerlabel form the previous question on.
+            self.questionLabel.isHidden = false
         }, completion: {
             finished in
             // update labels
@@ -193,8 +224,6 @@ class ViewController: UIViewController {
     }
     
     
-    
-    
 //    FUNCTIONS
     
     // Update flashcard with new questions.
@@ -240,6 +269,8 @@ class ViewController: UIViewController {
         }
     }
     
+    var correctAnswerButton: UIButton!
+    
     func updateLabels() {
 //        Get current flashcad
         let currentFlashcard = flashcards[currentIndex]
@@ -254,9 +285,17 @@ class ViewController: UIViewController {
         
         let flashcard = flashcards[currentIndex]
         
-        btn1.setTitle(flashcard.answer, for: .normal)
-        btn2.setTitle(flashcard.extraOne, for: .normal)
-        btn3.setTitle(flashcard.extraTwo, for: .normal)
+        let buttons = [btn1, btn2, btn3].shuffled()
+        let answers = [flashcard.answer, flashcard.extraOne, flashcard.extraTwo].shuffled()
+        
+        for (button, answer) in zip(buttons, answers) {
+            button?.setTitle(answer, for: .normal)
+            
+            if answer == flashcard.answer {
+                correctAnswerButton = button
+            }
+        }
+        
     }
     
     func saveAllFlashcardsToDisk() {
