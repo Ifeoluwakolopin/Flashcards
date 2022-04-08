@@ -115,18 +115,25 @@ class ViewController: UIViewController {
 //        Flip flashcard if correct answer else disable
         if btn1 == correctAnswerButton {
             flipFlashcard()
+            btn1.layer.backgroundColor = #colorLiteral(red: 0.3204639256, green: 0.9908053279, blue: 0.5152505636, alpha: 1)
         } else {
             questionLabel.isHidden = false
+            btn1.setTitleColor(.white, for: .normal)
+
         }
 
     }
+    
+
     
     @IBAction func didTapOnBtn2(_ sender: Any) {
 //        Flip flashcard if correct answer else disable
         if btn2 == correctAnswerButton {
             flipFlashcard()
+            btn2.layer.backgroundColor = #colorLiteral(red: 0.3204639256, green: 0.9908053279, blue: 0.5152505636, alpha: 1)
         } else {
             questionLabel.isHidden = false
+            btn2.setTitleColor(.white, for: .normal)
         }
     }
     
@@ -134,9 +141,11 @@ class ViewController: UIViewController {
 //        Flip flashcard if correct answer else disable
         if btn3 == correctAnswerButton {
             flipFlashcard()
+            btn3.layer.backgroundColor = #colorLiteral(red: 0.3204639256, green: 0.9908053279, blue: 0.5152505636, alpha: 1)
         } else {
             questionLabel.isHidden = false
-            btn3.isEnabled = false
+            btn3.setTitleColor(.white, for: .normal)
+
         }
     }
     
@@ -188,6 +197,9 @@ class ViewController: UIViewController {
 //        update options
         updateOptions()
         
+//        reset buttons colors to white
+        resetButtonColors()
+        
 //        update buttons
         updateNextPrevButtons()
         
@@ -201,6 +213,9 @@ class ViewController: UIViewController {
         
 //        update options
         updateOptions()
+        
+//        reset button colors to white
+        resetButtonColors()
         
 //        update buttons
         updateNextPrevButtons()
@@ -282,6 +297,15 @@ class ViewController: UIViewController {
         questionLabel.text = currentFlashcard.question
         answerLabel.text = currentFlashcard.answer
     
+    }
+    
+    func resetButtonColors() {
+        self.btn1.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.btn2.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.btn3.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.btn1.setTitleColor(.black, for: .normal)
+        self.btn2.setTitleColor(.black, for: .normal)
+        self.btn3.setTitleColor(.black, for: .normal)
     }
     
     func updateOptions() {
