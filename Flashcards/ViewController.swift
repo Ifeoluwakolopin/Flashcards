@@ -54,10 +54,13 @@ class ViewController: UIViewController {
         // This function runs before the user sees the app
         
         // These customize the views of the card which contains the question and answer views
-        card.layer.cornerRadius = 20.0
+        card.layer.cornerRadius = 25.0
         card.layer.shadowRadius = 15.0
         card.layer.shadowOpacity = 0.2
-        card.clipsToBounds = true
+        
+        questionLabel.layer.cornerRadius = 25.0
+        answerLabel.layer.cornerRadius = 25.0
+        
         questionLabel.clipsToBounds = true
         answerLabel.clipsToBounds = true
         
